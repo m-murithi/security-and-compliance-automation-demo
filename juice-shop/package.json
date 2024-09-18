@@ -1,0 +1,15 @@
+{
+    "name": "juice-shop",
+    "version": "1.0.0",
+    "description": "Dummy Juice Shop application for testing security tools.",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "author": "rimubytes",
+    "license": "MIT",
+    "dependencies": {
+      "express": "^4.18.1"
+    }
+  }
+  
