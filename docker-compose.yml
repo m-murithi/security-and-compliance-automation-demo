@@ -32,3 +32,21 @@ services:
     ports:
       - "9000:9000"
   
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    volumes:
+      - ./jenkins/jobs:/var/jenkins_home/jobs
+    ports: 
+      - "8080:8080"
+  
+  zap:
+    image: owasp/zap2docker-stable
+    container_name: zap
+    environment:
+      - ZAP_PORT=8090
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./zap/zap_config.xml:/home/zap/.ZAP/config.xml
+      - ./zap/reports:/zap/reports
