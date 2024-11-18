@@ -32,3 +32,18 @@ run_sonar_scan() {
     fi
 }
 
+save_scan_report() {
+    local report_file="${REPORTS_DIR}/sonarqube_report.txt"
+    local timestamp=$(date '+%Y%m%d_%H%M%S')
+    
+
+    if [ -f "${SONAR_WORK_DIR}/report-task.txt" ]; then
+        cp "${SONAR_WORK_DIR}/report-task.txt" "${report_file}.${timestamp}"
+        ln -sf "${report_file}.${timestamp}" "${report_file}"
+        echo "Scan report saved to: ${report_file}"
+    else
+        echo "Error: Scan report not found"
+        exit 1
+    fi
+}
+
